@@ -1,0 +1,20 @@
+{
+  "name": "raw-nodejs-api-project",
+  "version": "1.0.0",
+  "description": "\"# raw-nodejs-api-project\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mahaburalam/raw-nodejs-api-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mahaburalam/raw-nodejs-api-project/issues"
+  },
+  "homepage": "https://github.com/Mahaburalam/raw-nodejs-api-project#readme"
+}
