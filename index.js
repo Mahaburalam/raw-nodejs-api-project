@@ -34,7 +34,7 @@ app.handleReqRes = (req, res) => {
     const method = req.method.toLowerCase();
     const queryStringObject = parsedUrl.query; // received or show params value as an object
     const headerObject = req.headers; // show all header information
-    // console.log(headerObject);
+    console.log(headerObject);
 
     // response handle
     res.end('Hello developer!!');
