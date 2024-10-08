@@ -1,44 +1,67 @@
 /**
-    Title: Uptime Monitoring Application
-    Description: A restful API to monitor up or down time of user defined links
-*/
+ * 1. create server
+ * 2. get full url
+ * 3. get path name
+ * 4. get query string
+ * 5. get method
+ * 6. get headers information
+ * 7. get body data or information
+ */
 
-// dependencies
+// import required module
 const http = require('http');
 const url = require('url');
-// console.log(http);
+const {StringDecoder} = require('string_decoder')
 
-// app object - module scaffolding
-const app = {}; //
+// app module or scaffolding
+const app = {};
 
 // configuration
-app.config = {
-    port: 3000
-};
+app.config = {port:3000};
 
-// create server
+// create Server
 app.createServer = () => {
-    const server = http.createServer( app.handleReqRes );
+    const server = http.createServer(app.handleReqRes);
     server.listen(app.config.port, () => {
-        console.log(`Listening to port $  {app.config.port}`);
+        console.log(`Node js server run at ${app.config.port} port`)
     });
-}
 
-// handle request response
-app.handleReqRes = (req, res) => {
-    // request handle
-    const parsedUrl = url.parse(req.url, true);
-    const path = parsedUrl.pathname; // if pass param or any special symbol in url not showing in console
-    const trimmedPath = path.replace(/^\/+|\/+$/g, ''); //if pass any special symbol in url not showing in console
-
-    const method = req.method.toLowerCase();
-    const queryStringObject = parsedUrl.query; // received or show params value as an object
-    const headerObject = req.headers; // show all header information
-    console.log(headerObject);
-
-    // response handle
-    res.end('Hello developer!!');
 };
 
-// start the server
+// handle request and response
+app.handleReqRes = (req, res) => {
+
+    // get full url
+    const getFullUrl = url.parse(req.url, true);
+
+    // get path name
+    const pathName = getFullUrl.pathname;
+
+    // pares path name
+    const trimmedPathName = pathName.replace(/^\/+|\/+$/g,'');
+    // console.log(pathName, trimmedPathName);
+
+    // get query string or param value
+    const getQueryString = getFullUrl.query;
+    // console.log(getQueryString);
+
+    // get method name
+    const getMethod = req.method.toLowerCase();
+    // console.log(getMethod);
+
+    // get headers information
+    const headers = req.headers;
+    // console.log(req);
+    
+
+    // get body data
+    // create an object of class
+    const data = new StringDecoder('utf-8');
+    
+    // console.log(data);
+    res.end(`Node js is awesome and power full..`);
+};
+
+// console.log(url);
+
 app.createServer();
