@@ -10,7 +10,7 @@
 
 // import required module
 const http = require('http');
-const {handleReqRes} = require('./helpers/handleReqRes')
+const {handelReqRes} = require('./helpers/handleReqRes')
 
 // app module or scaffolding
 const app = {};
@@ -29,7 +29,7 @@ app.createServer = () => {
 
 // handle request and response
 // handle request and response
-app.handleReqRes = handleReqRes;
+app.handleReqRes = handelReqRes;
 
 // console.log(url);
 

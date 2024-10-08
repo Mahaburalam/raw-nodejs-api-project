@@ -5,6 +5,7 @@ const {StringDecoder} = require('string_decoder');
 // app module or scaffolding
 const handler = {};
 
+// handle request and response
 handler.handelReqRes = (req, res) => {
 
     // get full url
@@ -47,3 +48,5 @@ handler.handelReqRes = (req, res) => {
     
     // console.log(data);
 };
+
+module.exports = handler;
