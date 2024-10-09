@@ -33,18 +33,21 @@ handler.handelReqRes = (req, res) => {
 
     // get body data
     // create an object of class
-    const dataDecoder = new StringDecoder('utf-8');
+    const decodeString = new StringDecoder('utf-8');
+    let storeData= '';
 
-    let data = '';
+    // string or data write
     req.on('data', (buffer) => {
-        data += dataDecoder.write(buffer);
+        storeData += decodeString.write(buffer);
     });
 
-    req.on('end', ()=>{
-        data += dataDecoder.end();
-        res.end(`Node js is awesome and power full..`);
-        console.log(data);
-    });
+    // end process
+    req.on('end', () => {
+        storeData += decodeString.end();
+        console.log(storeData);
+        res.end(`Node js api development`);
+    })
+    
     
     // console.log(data);
 };
