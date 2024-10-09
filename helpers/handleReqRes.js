@@ -6,7 +6,7 @@ const {StringDecoder} = require('string_decoder');
 const handler = {};
 
 // handle request and response
-handler.handelReqRes = (req, res) => {
+handler.handelReqAndRes = (req, res) => {
 
     // get full url
     const getFullUrl = url.parse(req.url, true);
@@ -27,9 +27,17 @@ handler.handelReqRes = (req, res) => {
     // console.log(getMethod);
 
     // get headers information
-    const headers = req.headers;
-    // console.log(req);
-    
+    const headersObject = req.headers;
+
+    // create request properties object
+    const requestProperties = {
+        getFullUrl,
+        pathName,
+        trimmedPathName,
+        getQueryString,
+        getMethod,
+        headersObject
+    }
 
     // get body data
     // create an object of class
@@ -48,6 +56,18 @@ handler.handelReqRes = (req, res) => {
         res.end(`Node js api development`);
     })
     
+    // Define routes based on URL and method
+
+    // if (req.url === '/' && req.method === 'GET') {
+    //     res.end('Home Page');
+    // } else if (req.url === '/about' && req.method === 'GET') {
+    //     res.end('About Page');
+    // } else if (req.url === '/contact' && req.method === 'GET') {
+    //     res.end('Contact Page');
+    // } else {
+    //     res.writeHead(404);
+    //     res.end('404 Not Found');
+    // }
     
     // console.log(data);
 };
