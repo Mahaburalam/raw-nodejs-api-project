@@ -1,6 +1,9 @@
 // import modules
 const url = require('url');
 const {StringDecoder} = require('string_decoder');
+const routes = require('../route.js')
+const {fileNotFound} = require('../handler/routeHandler/notFoundRoute.js');
+const {sampleAppRoute} = require('../handler/routeHandler/sampleRoute');
 
 // app module or scaffolding
 const handler = {};
@@ -37,7 +40,23 @@ handler.handelReqAndRes = (req, res) => {
         getQueryString,
         getMethod,
         headersObject
-    }
+    };
+
+    // console.log(trimmedPathName);
+
+    const chosenHandler = routes[trimmedPathName] ? sampleAppRoute : fileNotFound;
+
+    chosenHandler(requestProperties, (statusCode, payload) => {
+        // console.log("hjbgdfhg")
+        statusCode = typeof statusCode === 'number' ? statusCode : 500;
+        payload = typeof payload === 'object' ? payload : {};
+
+        const payloadString = JSON.stringify(payload);
+
+        // return the final response
+        res.writeHead(statusCode);
+        res.end(payloadString);
+    });
 
     // get body data
     // create an object of class

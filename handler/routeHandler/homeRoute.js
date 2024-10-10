@@ -7,7 +7,7 @@
 const appRoute = {};
 
 appRoute.homeRoute = (requestProperties, callback) => {
-    console.log(``);
+    // console.log(``);
     callback(200, {
         message:" "
     })

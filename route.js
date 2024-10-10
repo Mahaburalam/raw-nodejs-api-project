@@ -10,5 +10,4 @@ const routes = {
     "home" : "This is home page"
 }
 
-
 module.exports = routes;
