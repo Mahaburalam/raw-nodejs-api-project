@@ -44,19 +44,8 @@ handler.handelReqAndRes = (req, res) => {
 
     // console.log(trimmedPathName);
 
-    const chosenHandler = routes[trimmedPathName] ? sampleAppRoute : fileNotFound;
-
-    chosenHandler(requestProperties, (statusCode, payload) => {
-        // console.log("hjbgdfhg")
-        statusCode = typeof statusCode === 'number' ? statusCode : 500;
-        payload = typeof payload === 'object' ? payload : {};
-
-        const payloadString = JSON.stringify(payload);
-
-        // return the final response
-        res.writeHead(statusCode);
-        res.end(payloadString);
-    });
+    const chosenHandler = routes[trimmedPathName] ? routes[trimmedPathName] : fileNotFound;
+    // const chosenHandler = routes[trimmedPathName] ? sampleAppRoute : fileNotFound;
 
     // get body data
     // create an object of class
@@ -71,7 +60,19 @@ handler.handelReqAndRes = (req, res) => {
     // end process
     req.on('end', () => {
         storeData += decodeString.end();
-        console.log(storeData);
+
+        chosenHandler(requestProperties, (statusCode, payload) => {
+            // console.log("hjbgdfhg")
+            statusCode = typeof statusCode === 'number' ? statusCode : 500;
+            payload = typeof payload === 'object' ? payload : {};
+    
+            const payloadString = JSON.stringify(payload);
+    
+            // return the final response
+            res.writeHead(statusCode);
+            res.end(payloadString);
+        });
+        
         res.end(`Node js api development`);
     })
     

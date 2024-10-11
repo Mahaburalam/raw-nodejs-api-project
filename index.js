@@ -10,13 +10,12 @@
 
 // import required module
 const http = require('http');
-const {handelReqAndRes} = require('./helpers/handleReqRes')
+const {handelReqAndRes} = require('./helpers/handleReqRes');
+const env = require('./helpers/environment');
 
 // app module or scaffolding
 const app = {};
 
-// configuration
-app.config = {port:3000};
 
 // create Server
 app.createServer = () => {

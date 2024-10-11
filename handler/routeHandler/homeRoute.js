@@ -9,7 +9,7 @@ const appRoute = {};
 appRoute.homeRoute = (requestProperties, callback) => {
     // console.log(``);
     callback(200, {
-        message:" "
+        message:"This is website home page"
     })
 }
 
