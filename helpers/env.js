@@ -14,4 +14,8 @@ env.staging = {
 env.production = {
     port: 4000,
     envName: "Live or production"
-}
+};
+
+
+module.exports = env;
+

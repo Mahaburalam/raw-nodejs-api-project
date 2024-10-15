@@ -11,7 +11,8 @@
 // import required module
 const http = require('http');
 const {handelReqAndRes} = require('./helpers/handleReqRes');
-const env = require('./helpers/environment');
+const env = require('./helpers/env');
+// console.log(env);
 
 // app module or scaffolding
 const app = {};
@@ -20,10 +21,10 @@ const app = {};
 // create Server
 app.createServer = () => {
     const server = http.createServer(app.handleReqRes);
-    server.listen(app.config.port, () => {
-        console.log(`Node js server run at ${app.config.port} port`)
-    });
+    server.listen(env.staging.port, () => {
 
+        console.log(`Node js server run at ${env.staging.port} port`)
+    });
 };
 
 // handle request and response
