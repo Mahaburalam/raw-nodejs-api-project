@@ -73,8 +73,8 @@ handler.handelReqAndRes = (req, res) => {
             res.end(payloadString);
         });
         
-        res.end(`Node js api development`);
-    })
+        // res.end(`Node js api development`);
+    });
     
     // Define routes based on URL and method
 

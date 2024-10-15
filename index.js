@@ -22,7 +22,7 @@ const app = {};
 app.createServer = () => {
     const server = http.createServer(app.handleReqRes);
     server.listen(env.staging.port, () => {
-
+        console.log(`get variable value when run node js project: ${process.env.env_name}`);
         console.log(`Node js server run at ${env.staging.port} port`)
     });
 };
