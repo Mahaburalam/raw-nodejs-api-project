@@ -4,7 +4,8 @@
   "description": "\"# raw-nodejs-api-project\"",
   "main": "index.js",
   "scripts": { 
-    "start": "nodemon index",
+    "start": "ENV_NAME=staging nodemon index",
+    "production": "ENV_NAME=production nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

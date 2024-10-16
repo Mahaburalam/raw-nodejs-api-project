@@ -16,6 +16,12 @@ env.production = {
     envName: "Live or production"
 };
 
+// which environment is passed through when program is running
+const currentEnvironment = typeof(process.env.ENV_NAME === "string")? process.env.ENV_NAME : "Staging";
 
+// export corresponding object data
+const exportEnvironment = typeof(env[currentEnvironment] === "Object")? env[currentEnvironment] : env.staging ;
+
+// module.exports = exportEnvironment;
 module.exports = env;
 

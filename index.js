@@ -11,8 +11,8 @@
 // import required module
 const http = require('http');
 const {handelReqAndRes} = require('./helpers/handleReqRes');
-const env = require('./helpers/env');
-// console.log(env);
+const environment = require('./helpers/env');
+// console.log(environment);
 
 // app module or scaffolding
 const app = {};
@@ -21,9 +21,9 @@ const app = {};
 // create Server
 app.createServer = () => {
     const server = http.createServer(app.handleReqRes);
-    server.listen(env.staging.port, () => {
-        console.log(`get variable value when run node js project: ${process.env.env_name}`);
-        console.log(`Node js server run at ${env.staging.port} port`)
+    server.listen(environment.staging.port, () => {
+        // console.log(`get variable value when run node js project: ${process.env.env_name}`);
+        console.log(`Node js server run at ${environment.staging.port} port`)
     });
 };
 
@@ -34,3 +34,4 @@ app.handleReqRes = handelReqAndRes;
 // console.log(url);
 
 app.createServer();
+
